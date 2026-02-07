@@ -1,0 +1,57 @@
+#include <stdio.h>
+int main() {
+    int num, rem;
+    char ch[20];
+    int i=0;
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        rem = num % 16;
+        if (rem < 10)
+            ch[i] = rem + 48;
+        else
+            ch[i] = rem + 55;
+        num = num / 16;
+        i++;
+    }
+    for (int j=i-1; j >= 0; j--) {
+        printf("%c", ch[j]);
+    }
+    return 0;
+}
+
+//////////// OR /////////////////
+
+/*#include <stdio.h>
+
+int main(){
+    int x;
+    char hexa[100];
+    scanf("%d",&x);
+    int temp=x;
+    while(temp != 0){
+        int rem = temp % 16;
+        char str[2];
+        if(rem >=0 && rem <=9)
+        sprintf(str,"%d",rem);
+        else if(rem == 10)
+        str[0] = 'A';
+        else if(rem == 11)
+        str[0] = 'B';
+        else if(rem == 12)
+        str[0] = 'C';
+        else if(rem == 13)
+        str[0] = 'D';
+        else if(rem == 14)
+        str[0] = 'E';
+        else
+        str[0] = 'F';
+        str[1] = '\0';
+        strcat(hexa,str);
+        temp = temp/16;
+    }
+    strrev(hexa);
+    printf("Hexa decimal of %d is %s",x,hexa);
+    return 0;
+}*/
