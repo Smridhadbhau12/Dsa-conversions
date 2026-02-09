@@ -1,0 +1,180 @@
+/// Implement list using Array ///
+#include<stdio.h>
+#define MAX 100
+int list[MAX];
+int n = 0;  // check how many element in a list
+
+void insertinbeg(int value){
+    if(MAX == n){
+        printf("List is Full !!!!!");
+        return ;
+    }
+     for (int i=n-1; i>=0; i--){
+        list[i+1] = list[i];
+     }
+        list[0] = value;
+        n = n+1;
+        printf("Element Inserted\n");
+     }
+
+
+void displaylist(){
+    if(n == 0){
+        printf("List is Empty\n");
+        return ;
+    }
+    for(int i=0; i<n; i++){
+        printf("%d\t",list[i]);
+    }
+    printf("\n");
+}
+
+
+void insertatend(int value){
+    if(n == MAX){
+        printf("List is full !!!");
+        printf("Element Inserted !!!\n");
+        return;
+    }
+    list[n++] = value;
+    printf("Element Inserted !!!\n");
+}
+
+
+void insertatposition(int position,int value){
+     if( position < 0 || position >= n)
+        printf("Position is Invalid !!!");
+     
+     else{
+        for(int i=n-1; i>=position; i--){
+            list[i+1]=list[i];
+        }
+        list[position] = value;
+        n++;
+        printf("Element Inserted !!!\n");
+     }
+    }
+
+
+void deletefrombegning(){
+    if(n == 0){
+        printf("List is Empty !!!");
+        return;
+    }
+    for(int i=0; i<n-1; i++){
+        list[i] = list[i+1];
+    }
+    n=n-1;
+    printf("Element Deleted !!!");
+}
+
+
+void deletefromend(){
+    if(n == 0){
+        printf("List is Empty");
+    }
+    n--;
+    printf("Element Deleted !!!");
+}
+
+
+void deletfromposition(int position){
+    if( position < 0 || position >= n){
+        printf("Position is Invalid !!!");
+    }
+     else{
+        for(int i=position; i < n-1; i++){
+            list[i]=list[i+1];
+        }
+        
+        n--;
+        printf("Element Inserted !!!\n");
+     }
+}
+
+
+int main(){
+    while(1){
+        printf("1. inset in Beginning: \n");
+        printf("2. Insert element at end: \n");
+        printf("3. Insert element at any position: \n");
+        printf("4. Delete element from begning: \n");        
+        printf("5. Delete element from end: \n");
+        printf("6. Delete element from given position: \n");        
+        printf("7. Display List: \n");        
+        printf("8. Search element in list: \n");
+        printf("9. Update element in list: \n");
+        printf("10. Sort element in list: \n");
+        printf("11. Exit: \n");
+        int choice,data,position;
+        printf("Enter Choice: ");
+        scanf("%d",&choice);
+        
+        
+        switch(choice){
+            case 1:
+            printf("Enter data: ");
+            scanf("%d",&data);
+            insertinbeg(data);
+                break;
+        
+        
+            case 2:
+            printf("Enter data: ");
+            scanf("%d",&data);
+            insertatend(data);
+                break;
+            
+            
+            case 3:
+            printf("Enter position: ");
+            scanf("%d",&position);
+            printf("Enter data: ");
+            scanf("%d",&data);
+            insertatposition(position,data);
+                break;
+            
+            
+            case 4:
+            deletefrombegning();
+                break;
+        
+        
+            case 5:
+            deletefromend();
+                break;
+    
+    
+            case 6:
+            printf("Enter position: ");
+            scanf("%d",&position);
+            deletfromposition(position);
+                break;
+
+
+            case 7:
+            displaylist();
+                break;
+            
+            
+            case 8:
+                break;
+        
+        
+            case 9:
+                break;
+    
+    
+            case 10:
+                break;
+            
+            
+            case 11:
+                break;
+        
+            default:
+                printf("Invalid Choice !!!!\n");
+        }
+    }
+    return 0;
+}
